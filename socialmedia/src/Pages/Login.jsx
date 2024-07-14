@@ -1,6 +1,6 @@
 
 import { useState } from "react"
-import axios from 'axios';
+import axios from './axiosConfig';
 import { useNavigate, Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import ClipLoader from "react-spinners/ClipLoader";
@@ -26,7 +26,7 @@ export default function LoginPage() {
     setLoading(true)
     e.preventDefault()
     console.log(e)
-    axios.post('http://localhost:8000/login', {email: email, password: password})
+    axios.post('/login', {email: email, password: password})
     .then((response) => {
       console.log("The response from backend is: ",response);
         //console.log(response)
