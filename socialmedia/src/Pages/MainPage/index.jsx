@@ -4,7 +4,7 @@ import PostList from '../../Components/postList';
 import CreatePost from '../../Components/CreatePost';
 import imageCompression from 'browser-image-compression';
 import { useLocation, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import axios from '../axiosConfig';
 const MainPage = () => {
 
   const [posts, setPosts] = useState([]);
@@ -14,7 +14,7 @@ const MainPage = () => {
   const state = useLocation().state
   console.log(state)
   const getPosts = () => {
-    axios.get('http://localhost:8000/get_posts')
+    axios.get('/get_posts')
     .then((response) => {
       console.log(response);
         console.log(response)
@@ -36,7 +36,7 @@ formData.append('title', post.title);
 formData.append('content', post.content);
 formData.append('media', post.media)
 formData.append('name', localStorage.getItem('name'));
-axios.post('http://localhost:8000/create_post', formData, {
+axios.post('/create_post', formData, {
   headers: {
     'Content-Type': 'multipart/form-data',
   },
