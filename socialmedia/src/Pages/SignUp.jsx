@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from 'axios';
+import axios from './axiosConfig';
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import ClipLoader from "react-spinners/ClipLoader";
@@ -20,7 +20,7 @@ export default function SignUp() {
   function sign_up(e) {
     setLoading(true);
     e.preventDefault();
-    axios.post('http://localhost:8000/signup', { email, username, password })
+    axios.post('/signup', { email, username, password })
       .then((response) => {
         if (response.status === 200 || response.status === 201) {
           setLoading(false);
