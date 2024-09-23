@@ -8,7 +8,7 @@ const Post = ({ post }) => {
       <h2 className="text-xl font-bold">{post.title}</h2>
       <img src={post.media} alt="" />
       <p className="text-gray-700">{post.content}</p>
-      <p className="text-gray-500 text-sm">Posted by {localStorage.getItem('name')}</p>
+      <p className="text-gray-500 text-sm">Posted by {post['username']}</p>
       
     </div>
   );
